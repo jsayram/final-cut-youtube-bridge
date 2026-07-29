@@ -1,0 +1,14 @@
+{
+  "name": "Default YouTube Channel",
+  "eventName": "YouTube Imports",
+  "projectNameTemplate": "{{title}}",
+  "colorSpace": "1-1-1 (Rec. 709)",
+  "audioLayout": "stereo",
+  "audioRate": 48000,
+  "roles": {
+    "narration": "dialogue.narration",
+    "music": "music.background",
+    "effects": "effects.sound-effects"
+  },
+  "libraryPath": null
+}

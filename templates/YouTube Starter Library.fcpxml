@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.14">
+  <resources>
+    <format id="r1" name="FFVideoFormatRateUndefined" frameDuration="1/30s" width="3840" height="2160" colorSpace="1-1-1 (Rec. 709)"/>
+    <format id="r2" name="FFVideoFormatRateUndefined" frameDuration="1/30s" width="1080" height="1920" colorSpace="1-1-1 (Rec. 709)"/>
+  </resources>
+  <library colorProcessing="standard">
+    <event name="00 — Templates">
+      <project name="YouTube 4K 16x9 — Starter">
+        <sequence format="r1" duration="60s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+            <gap name="Drop horizontal media here" offset="0s" start="0s" duration="60s">
+              <marker start="0s" duration="1/30s" value="Replace this gap with your first scene"/>
+            </gap>
+          </spine>
+        </sequence>
+      </project>
+      <project name="YouTube Short 9x16 — Starter">
+        <sequence format="r2" duration="60s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+          <spine>
+            <gap name="Drop vertical media here" offset="0s" start="0s" duration="60s">
+              <marker start="0s" duration="1/30s" value="Replace this gap with your first scene"/>
+            </gap>
+          </spine>
+        </sequence>
+      </project>
+    </event>
+    <event name="01 — Media Inbox"/>
+    <event name="02 — Narration Music SFX"/>
+    <event name="03 — Active Projects"/>
+    <event name="99 — Exports and Archive"/>
+  </library>
+</fcpxml>

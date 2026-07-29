@@ -1,0 +1,14 @@
+{
+  "name": "Example Channel",
+  "eventName": "Example Channel — YouTube",
+  "projectNameTemplate": "{{title}} — Edit",
+  "colorSpace": "1-1-1 (Rec. 709)",
+  "audioLayout": "stereo",
+  "audioRate": 48000,
+  "roles": {
+    "narration": "dialogue.narration",
+    "music": "music.background",
+    "effects": "effects.sound-effects"
+  },
+  "libraryPath": "/Users/your-name/Movies/Example Channel.fcpbundle"
+}
