@@ -11,14 +11,35 @@ those files in place or copy them according to its import behavior and the desti
 
 Import `templates/YouTube Starter Library.fcpxml` once with **File → Import → XML**. It creates:
 
-- `YouTube 4K 16x9 — Starter`: 3840×2160, 30 fps, Rec. 709, stereo 48 kHz.
-- `YouTube Short 9x16 — Starter`: 1080×1920, 30 fps, Rec. 709, stereo 48 kHz.
-- Separate events for templates, incoming media, audio, active projects, and archived exports.
+- `YouTube 4K 16x9 — Starter`: 3840×2160, 30 fps, Rec. 709, stereo 48 kHz. For long-form.
+- `YouTube Short · TikTok · Reels 9x16 — Starter`: 1080×1920, 30 fps, Rec. 709, stereo 48 kHz. One
+  frame size covers all three vertical platforms, so it's a single starter rather than three.
+- Five events: `00 — Templates` (the two starter projects above), `01 — Media Inbox` (with `A-Roll`
+  and `B-Roll` sub-bins), `02 — Narration Music SFX` (with `Narration / VO`, `Music`, and `SFX`
+  sub-bins), `03 — Active Projects`, and `99 — Exports and Archive`.
+- Library-wide smart collections — `B-Roll`, `Narration / VO`, `Music`, `SFX` — that auto-collect
+  any clip anywhere in the library tagged with the matching keyword, plus the general-purpose
+  `Projects`, `All Video`, `Audio Only`, `Stills`, `Favorites`, and `Missing Analysis` ones.
 
-Duplicate the appropriate starter project inside Final Cut before beginning a manual edit. The
-bridge-generated projects do not need this template: they automatically inherit width, height,
+Duplicate the appropriate starter project inside Final Cut before beginning a manual edit. Each
+starter timeline already has the primary storyline (A-Roll) plus four anchored, pre-laned, and
+pre-keyworded placeholder slots for B-Roll (lane 1), Narration/VO (lane -1), Music (lane -2), and
+SFX (lane -3) — the same lane numbering the bridge itself uses when it anchors narration, music,
+and sound effects in a generated export, so a manual edit and a pipeline export share one
+convention. Drag real media into a placeholder's gap to replace it.
+
+FCPXML has no way to pre-register a custom **role** (the Roles panel / audio mixer bucket) without
+a real clip already carrying it — an empty template can't fake that. Each placeholder therefore
+carries a marker naming the role to apply the first time you replace it with real footage:
+`B-Roll` for video, `dialogue.narration` / `music.background` / `effects.sound-effects` for audio
+— matching `channels/default.json`'s `roles` block. Assign it once; Final Cut remembers it in the
+library for every project after.
+
+The bridge-generated projects do not need this template: they automatically inherit width, height,
 frame rate, and duration from each pipeline project's `video.json`, which avoids accidental
-resizing or frame-rate conversion.
+resizing or frame-rate conversion. Set a channel's `eventName` to `"03 — Active Projects"` (the
+default already is) so pipeline exports land inside this library's structure instead of creating a
+stray event of their own.
 
 ## What it creates
 

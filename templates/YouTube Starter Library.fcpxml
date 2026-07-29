@@ -10,25 +10,119 @@
       <project name="YouTube 4K 16x9 — Starter">
         <sequence format="r1" duration="60s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
           <spine>
-            <gap name="Drop horizontal media here" offset="0s" start="0s" duration="60s">
-              <marker start="0s" duration="1/30s" value="Replace this gap with your first scene"/>
+            <gap name="A-Roll — drop your main footage here" offset="0s" start="0s" duration="60s">
+              <clip name="B-Roll — drop cutaways here" lane="1" offset="0s" start="0s" duration="60s">
+                <gap name="B-Roll" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="b-roll"/>
+                  <marker start="0s" duration="1/30s" value="B-Roll lane. Tag real clips with the video role B-Roll to keep the Roles panel consistent."/>
+                </gap>
+              </clip>
+              <clip name="Narration / VO — drop voice takes here" lane="-1" offset="0s" start="0s" duration="60s">
+                <gap name="Narration / VO" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="narration"/>
+                  <marker start="0s" duration="1/30s" value="Narration lane. Tag real takes with the audio role dialogue.narration, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <clip name="Music — drop score or background music here" lane="-2" offset="0s" start="0s" duration="60s">
+                <gap name="Music" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="music"/>
+                  <marker start="0s" duration="1/30s" value="Music lane. Tag real cues with the audio role music.background, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <clip name="SFX — drop sound effects here" lane="-3" offset="0s" start="0s" duration="60s">
+                <gap name="SFX" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="sfx"/>
+                  <marker start="0s" duration="1/30s" value="SFX lane. Tag real hits with the audio role effects.sound-effects, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <marker start="0s" duration="1/30s" value="A-Roll lane. Replace this gap with your first scene."/>
             </gap>
           </spine>
         </sequence>
       </project>
-      <project name="YouTube Short 9x16 — Starter">
+      <project name="YouTube Short · TikTok · Reels 9x16 — Starter">
         <sequence format="r2" duration="60s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
           <spine>
-            <gap name="Drop vertical media here" offset="0s" start="0s" duration="60s">
-              <marker start="0s" duration="1/30s" value="Replace this gap with your first scene"/>
+            <gap name="A-Roll — drop your main footage here" offset="0s" start="0s" duration="60s">
+              <clip name="B-Roll — drop cutaways here" lane="1" offset="0s" start="0s" duration="60s">
+                <gap name="B-Roll" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="b-roll"/>
+                  <marker start="0s" duration="1/30s" value="B-Roll lane. Tag real clips with the video role B-Roll to keep the Roles panel consistent."/>
+                </gap>
+              </clip>
+              <clip name="Narration / VO — drop voice takes here" lane="-1" offset="0s" start="0s" duration="60s">
+                <gap name="Narration / VO" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="narration"/>
+                  <marker start="0s" duration="1/30s" value="Narration lane. Tag real takes with the audio role dialogue.narration, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <clip name="Music — drop score or background music here" lane="-2" offset="0s" start="0s" duration="60s">
+                <gap name="Music" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="music"/>
+                  <marker start="0s" duration="1/30s" value="Music lane. Tag real cues with the audio role music.background, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <clip name="SFX — drop sound effects here" lane="-3" offset="0s" start="0s" duration="60s">
+                <gap name="SFX" offset="0s" start="0s" duration="60s">
+                  <keyword start="0s" duration="60s" value="sfx"/>
+                  <marker start="0s" duration="1/30s" value="SFX lane. Tag real hits with the audio role effects.sound-effects, matching the pipeline export."/>
+                </gap>
+              </clip>
+              <marker start="0s" duration="1/30s" value="A-Roll lane. Replace this gap with your first scene."/>
             </gap>
           </spine>
         </sequence>
       </project>
     </event>
-    <event name="01 — Media Inbox"/>
-    <event name="02 — Narration Music SFX"/>
+    <event name="01 — Media Inbox">
+      <collection-folder name="A-Roll"/>
+      <collection-folder name="B-Roll"/>
+    </event>
+    <event name="02 — Narration Music SFX">
+      <collection-folder name="Narration / VO"/>
+      <collection-folder name="Music"/>
+      <collection-folder name="SFX"/>
+    </event>
     <event name="03 — Active Projects"/>
     <event name="99 — Exports and Archive"/>
+    <smart-collection name="Projects" match="all">
+      <match-clip rule="is" type="project"/>
+    </smart-collection>
+    <smart-collection name="All Video" match="any">
+      <match-media rule="is" type="videoOnly"/>
+      <match-media rule="is" type="videoWithAudio"/>
+    </smart-collection>
+    <smart-collection name="Audio Only" match="all">
+      <match-media rule="is" type="audioOnly"/>
+    </smart-collection>
+    <smart-collection name="Stills" match="all">
+      <match-media rule="is" type="stills"/>
+    </smart-collection>
+    <smart-collection name="Favorites" match="all">
+      <match-ratings value="favorites"/>
+    </smart-collection>
+    <smart-collection name="B-Roll" match="all">
+      <match-keywords rule="includesAny">
+        <keyword-name value="b-roll"/>
+      </match-keywords>
+    </smart-collection>
+    <smart-collection name="Narration / VO" match="all">
+      <match-keywords rule="includesAny">
+        <keyword-name value="narration"/>
+      </match-keywords>
+    </smart-collection>
+    <smart-collection name="Music" match="all">
+      <match-keywords rule="includesAny">
+        <keyword-name value="music"/>
+      </match-keywords>
+    </smart-collection>
+    <smart-collection name="SFX" match="all">
+      <match-keywords rule="includesAny">
+        <keyword-name value="sfx"/>
+      </match-keywords>
+    </smart-collection>
+    <smart-collection name="Missing Analysis" match="all">
+      <match-analysis-type rule="isMissing" value="any"/>
+    </smart-collection>
   </library>
 </fcpxml>

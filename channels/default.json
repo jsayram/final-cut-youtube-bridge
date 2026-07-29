@@ -1,6 +1,6 @@
 {
   "name": "Default YouTube Channel",
-  "eventName": "YouTube Imports",
+  "eventName": "03 — Active Projects",
   "projectNameTemplate": "{{title}}",
   "colorSpace": "1-1-1 (Rec. 709)",
   "audioLayout": "stereo",

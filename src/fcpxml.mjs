@@ -231,7 +231,7 @@ export function buildFcpxml({
   const projectName = (channel.projectNameTemplate || "{{title}}")
     .replaceAll("{{title}}", project.video.title || project.slug)
     .replaceAll("{{slug}}", project.slug);
-  const eventName = channel.eventName || channel.name || "YouTube Imports";
+  const eventName = channel.eventName || channel.name || "03 — Active Projects";
   const roleNarration = channel.roles?.narration || "dialogue.narration";
   const roleMusic = channel.roles?.music || "music.background";
   const roleEffects = channel.roles?.effects || "effects.sound-effects";
