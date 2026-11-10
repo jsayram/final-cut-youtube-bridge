@@ -53,7 +53,7 @@ stray event of their own.
 ## First run
 
 ```bash
-cd "/Users/jramirez/Git/final-cut-youtube-bridge"
+cd "<project-root>"
 npm run doctor
 npm run export -- --project ordinary-tuesday
 ```
@@ -91,6 +91,9 @@ npm run export -- \
   --source "/path/to/YoutubeShort Pipeline" \
   --project ordinary-tuesday
 ```
+
+or set `YOUTUBE_PIPELINE_DIR` in your shell. Without either, the bridge looks for a sibling folder named
+`YoutubeShort Pipeline`, `youtubeshort-pipeline` or `YoutubeShort-Pipeline`.
 
 ## Channel profiles
 
